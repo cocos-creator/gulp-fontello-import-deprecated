@@ -95,7 +95,7 @@ function getSvgSrcFiles(opts, cb) {
   var config = JSON.parse(fs.readFileSync(opts.config || 'config.json'));
   getCustomIcons(config);
   var svgList = [];
-  var stream = gulp.src(path.join(opts.svgsrc, '*.svg').pipe(map(function(data, callback) {
+  var stream = gulp.src(path.join(opts.svgsrc, '*.svg')).pipe(map(function(data, callback) {
     var name = path.basename(data.path, '.svg');
     var content = data._contents.toString('utf8');
     var obj = {
@@ -106,7 +106,7 @@ function getSvgSrcFiles(opts, cb) {
     // console.log(data._contents.toString('utf8'));
     // console.log(path.basename(data.path, '.svg'));
     callback(null, obj);
-  }));
+    }));
   stream.on('end', function() {
     // console.log("stream finished");
     // console.log(svgList);
