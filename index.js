@@ -5,14 +5,12 @@ var _ = require('lodash');
 var needle = require('needle');
 var unzip = require('unzip');
 var SvgPath = require('svgpath');
-var config = require('../../config.json');
+
 var map = require('map-stream');
 var utils = require('./lib/utils');
 var svg_image_flatten = require('./lib/_svg_image_flatten');
 var customIcons = [];
 var fontelloIcons = [];
-
-getCustomIcons();
 
 var maxCode = _.max(customIcons, function(glyph) {
   return glyph.code;
@@ -93,9 +91,11 @@ function getIconFont(options, cb) {
   });
 }
 
-function getSvgSrcFiles(cb) {
+function getSvgSrcFiles(opts, cb) {
+  var config = JSON.parse(fs.readFileSync(opts.config || 'config.json'));
+  getCustomIcons(config);
   var svgList = [];
-  var stream = gulp.src('svg-src/*.svg').pipe(map(function(data, callback) {
+  var stream = gulp.src(path.join(opts.svgsrc, '*.svg').pipe(map(function(data, callback) {
     var name = path.basename(data.path, '.svg');
     var content = data._contents.toString('utf8');
     var obj = {
@@ -116,7 +116,7 @@ function getSvgSrcFiles(cb) {
       updateCustomIcons(entry);
     });
     config.glyphs = _.union(customIcons, fontelloIcons);
-    fs.writeFileSync('config.json', JSON.stringify(config));
+    fs.writeFileSync(opts.config, JSON.stringify(config));
     cb();
   });
 }
@@ -175,7 +175,7 @@ function processSvg(data) {
 }
 
 
-function getCustomIcons() {
+function getCustomIcons(config) {
   var allGlyphsArray = config.glyphs;
   customIcons = [];
   fontelloIcons = [];
