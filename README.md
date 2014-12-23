@@ -53,6 +53,14 @@ Next, you should have a folder with all your source svg files. You should manage
 
 You can add, replace svg files in that folder. Just make sure the naming of svg files are consistent. **NOTE: if you remove a svg icon from the source folder, you have to remove the corresponding entry manually in your config.json file. The importer does not handle icon removal automatically.**
 
+### Add Fontello Icons
+
+There are icon font sets on <http://fontello.com> website you can add to your project. To do this, just open fontello website and drag your `config.json` file to the webpage. And follow instructions on fontello website.
+
+Your imported Svg files will appears in **Custom Icons** section of the webpage.
+
+You can also edit css class and code for all icon font glyphs in your project.
+
 ### Update source SVG to config.json
 
 Add the following code to your `gulpfile.js`:
