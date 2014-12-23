@@ -196,8 +196,8 @@ function uid() {
 }
 
 module.exports = {
-    importSvg: function (cb) {
-        getSvgSrcFiles(cb);
+    importSvg: function (options, cb) {
+        getSvgSrcFiles(options, cb);
     },
     getFont: function (options, cb) {
         getIconFont(options, cb);

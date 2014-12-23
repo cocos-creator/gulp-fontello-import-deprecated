@@ -2,10 +2,10 @@ var gulp = require('gulp');
 var importer = require('gulp-fontello-import');
 
 gulp.task('import-svg', function(cb) {
-  importer.importSvg({
-      config : 'config.json',
-      svgsrc : 'svg-src'
-  }, cb);
+    importer.importSvg({
+        config : 'config/config.json',
+        svgsrc : 'svg-src'
+    }, cb);
 });
 
 gulp.task('get-icon-font', ['import-svg'], function(cb) {
