@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "repository": {
       "type" : "git",
-      "url" : "https://github.com/nantas/gulp-fontello-import.git"
+      "url" : "https://github.com/fireball-x/gulp-fontello-import.git"
   },
   "keywords" : [
       "gulp",
