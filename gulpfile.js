@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var importer = require('./index.js');
+var importer = require('gulp-fontello-import');
 
 gulp.task('import-svg', function(cb) {
   importer.importSvg(cb);
