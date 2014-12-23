@@ -1,0 +1,37 @@
+{
+  "name": "gulp-fontello-import",
+  "description": "Import svg files to fontello icon font project, use svg filename as glyph name. Also provide task for auto download exported css and font files into desinated folder.",
+  "main": "index.js",
+  "private": "true",
+  "version": "0.0.1",
+  "repository": {
+      "type" : "git",
+      "url" : "https://github.com/nantas/gulp-fontello-import.git"
+  },
+  "keywords" : [
+      "gulp",
+      "fontello",
+      "icon-font",
+      "pipeline"
+  ],
+  "author" : "nantas",
+  "license": "MIT",
+  "engines" : {
+    "node": ">= 0.10.33"
+  },
+  "bugs": {
+      "url": "https://github.com/fireball-x/gulp-fontello-import/issues"
+  },
+  "homepage": "https://github.com/fireball-x/gulp-fontello-import",
+  "dependencies": {
+    "lodash": "~ 2.4.1",
+    "svgpath": "~ 1.0.0",
+    "xmldom": "~ 0.1.16",
+    "needle": "0.5.8",
+    "unzip": "0.1.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "map-stream": "0.0.5"
+  }
+}
