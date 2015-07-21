@@ -32,7 +32,6 @@
     "map-stream": "0.0.5"
   },
   "devDependencies": {
-    "gulp": "^3.8.10",
-    "gulp-build-atom-shell": "fireball-x/gulp-build-atom-shell"
+    "gulp": "^3.8.10"
   }
 }
