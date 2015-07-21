@@ -23,7 +23,7 @@ Add this in your pacakge.json:
 ``` javascript
 "devDependencies": {
     "gulp": "^3.8.10",
-    "gulp-build-atom-shell": "fireball-x/gulp-build-atom-shell"
+    "gulp-fontello-import": "fireball-x/gulp-fontello-import"
 }
 ```
 And run:
