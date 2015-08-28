@@ -34,7 +34,7 @@ npm install
 
 ## Usage
 
-You should create a `config.json` file somewhere in your project, with the following content:
+You should create a `config.json` file somewhere in your project, with the following content (or download it from Fontello):
 ``` javascript
 {
     "name": "font-name",
@@ -47,9 +47,9 @@ You should create a `config.json` file somewhere in your project, with the follo
 }
 ```
 Customization on name, prefix and units are available, just edit the file.
-You can also copy the `config.json` file included in this plugin as a starting point.
+You can also copy the `config.json` file included in this plugin as a starting point, or use one from a font at Fontello.
 
-Next, you should have a folder with all your source svg files. You should manage this folder so that your svg icons are identified by their filename. **We will use svg file name as the base of css classname of generated icon font.**
+Next, if you are building a font from svg, you should have a folder with all your source svg files. You should manage this folder so that your svg icons are identified by their filename. **We will use svg file name as the base of css classname of generated icon font.**
 
 You can add, replace svg files in that folder. Just make sure the naming of svg files are consistent. **NOTE: if you remove a svg icon from the source folder, you have to remove the corresponding entry manually in your config.json file. The importer does not handle icon removal automatically.**
 
@@ -85,10 +85,9 @@ Add the following code to your `gulpfile.js`:
 
 gulp.task('get-icon-font', ['import-svg'], function(cb) {
     importer.getFont({
-        host           : 'http://fontello.com',
-        config         : 'config.json',
-        css : 'css',
-        font : 'fonts',
+        config: 'config.json',
+        css: 'css',
+        font: 'fonts',
         // If you don't need some of the styles provided by fontello, you can skip them with this options
         animation: false,
         codes: false,
@@ -96,12 +95,14 @@ gulp.task('get-icon-font', ['import-svg'], function(cb) {
         embedded: false,
         // If you need the styles to have a different extension than .css, you can change it with this option
         ext: '.scss'
+        // If you use a different host than fontello.com, you can change it with this option
+        host: 'http://fontello.com',
     },cb);
 });
 
 gulp.task('get-example', ['import-svg'], function(cb) {
     importer.getFont({
-        host : 'http://fontello.com',
+        // host : 'http://fontello.com',
         config: 'config.json'
     }, cb);
 });
