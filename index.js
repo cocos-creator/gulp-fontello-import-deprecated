@@ -73,6 +73,9 @@ function getIconFont(options, cb) {
                 ) {
                 return;
               } else {
+                if (options.ext) {
+                  fileName = fileName.replace('.css', options.ext)
+                }
                 cssPath = path.join(options.css, fileName);
                 return entry.pipe(fs.createWriteStream(cssPath));
               }

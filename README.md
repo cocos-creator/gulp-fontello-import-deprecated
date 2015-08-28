@@ -89,11 +89,13 @@ gulp.task('get-icon-font', ['import-svg'], function(cb) {
         config         : 'config.json',
         css : 'css',
         font : 'fonts',
-        // If you don't need some of the files provided by fontello, you can skip them with this options
+        // If you don't need some of the styles provided by fontello, you can skip them with this options
         animation: false,
         codes: false,
         ie7: false,
         embedded: false,
+        // If you need the styles to have a different extension than .css, you can change it with this option
+        ext: '.scss'
     },cb);
 });
 
