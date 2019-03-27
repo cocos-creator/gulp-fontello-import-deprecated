@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/fireball-x/gulp-fontello-import",
   "dependencies": {
-    "lodash": "~ 2.4.1",
+    "lodash": ">=4.17.11",
     "svgpath": "~ 1.0.0",
     "xmldom": "~ 0.1.16",
     "needle": "0.5.8",
