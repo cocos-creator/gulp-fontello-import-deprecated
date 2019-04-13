@@ -65,8 +65,20 @@ function getIconFont(options, cb) {
           fileName = path.basename(pathName);
           switch (dirName) {
             case 'css':
-              cssPath = path.join(options.css, fileName);
-              return entry.pipe(fs.createWriteStream(cssPath));
+              if (
+                  (fileName === 'animation.css' && options.animation === false) ||
+                  (fileName.match(/.*-codes.*/) && options.codes === false) ||
+                  (fileName.match(/.*-ie7.*/) && options.ie7 === false) ||
+                  (fileName.match(/.*-embedded\.css/) && options.embedded === false)
+                ) {
+                return;
+              } else {
+                if (options.ext) {
+                  fileName = fileName.replace('.css', options.ext)
+                }
+                cssPath = path.join(options.css, fileName);
+                return entry.pipe(fs.createWriteStream(cssPath));
+              }
             case 'font':
               fontPath = path.join(options.font, fileName);
               return entry.pipe(fs.createWriteStream(fontPath));
