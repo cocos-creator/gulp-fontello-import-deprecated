@@ -12,11 +12,7 @@ var svg_image_flatten = require('./lib/_svg_image_flatten');
 var customIcons = [];
 var fontelloIcons = [];
 
-var maxCode = _.max(customIcons, function(glyph) {
-  return glyph.code;
-}).code;
-
-var allocatedRefCode = (!maxCode) ? 59392 : maxCode + 1;
+var allocatedRefCode;
 
 var HOST = 'http://fontello.com';
 
@@ -186,6 +182,12 @@ function getCustomIcons(config) {
       fontelloIcons.push(allGlyphsArray[i]);
     }
   }
+
+  var maxCode = _.max(customIcons, function(glyph) {
+    return glyph.code;
+  }).code;
+
+  allocatedRefCode = (!maxCode) ? 59392 : maxCode + 1;
 }
 
 function uid() {
